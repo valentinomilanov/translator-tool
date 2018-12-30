@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Translate</title>
+
+
+
+</head>
+<body>
+<script>
+
+function jsFunction() {
+	setTimeout(function(){ document.getElementById("translateForm").submit(); }, 3000);
+	}
+
+</script>
+<div id="wraapper" 
+	 style="border-style: solid;
+  	 border-color: darkred;
+  	 width : 500px; ">
+  	 
+	<div id="header" 
+		 style="height: 100px;
+		 background-color: darkred;">
+	</div>
+	<div id="content"
+		 style="padding:10px 25px;">
+		<h:form id="translateForm" update="@this" > 
+			<div id="inputText"
+				 style="max-height: 100px;
+				 padding: 50px 25px 25px 25px;
+				 background-color: #f4f6f9;
+				 border-style: solid;
+				 border-width: 1px;
+		  	 	 border-color: silver;">
+				<h:inputText 
+					id="inputTextValue"
+					style="width: 100%;
+					font-size:24px;"
+					value="#{translator.toTranslate}"
+					onchange="jsFunction()"
+					>
+					</h:inputText> 	
+								
+			</div>
+			<div id="translatedText"
+				 style="padding: 25px 0px 50px 25px;">
+				 <h3>Translated text:</h3><br/><br/>
+				 <h:outputText id="ot" value="#{translator.translated}"/>
+				 <h:commandButton value="OK - continue" 
+				 	style="float: right;
+				 	background-color: orange;
+				 	color: white;
+				 	padding: 5px 20px;
+				 	border-radius: 6px;
+				 	font-weight: bold;"
+				 	action="#{translator.finalTranslate()}"/>
+			</div>
+		</h:form>
+		
+	</div>
+</div>
+
+
+</body>
+
+</html>
